@@ -5,7 +5,9 @@ $dados = recuperDadosRequest();
 require_once 'src/controller/FuncionariosController.php';
 $funcionariosController = new FuncionariosController();
 
-if( $dados['acaoAjax'] === "acessarSistema" ) { echo $funcionariosController->acessarSistema($dados['email'], $dados['senha']); }
+header('Content-Type: application/json; charset=utf-8');
+
+if( $dados['acaoAjax'] === "acessarSistema" ) return $funcionariosController->acessarSistema($dados['email'], $dados['senha']);
 
 function recuperDadosRequest() {
 

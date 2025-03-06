@@ -30,10 +30,10 @@ class FuncionariosController {
 
             $usuarioAutenticado = $this->funcionariosModel->autenticarFuncionario($this->email, $this->senha);
 
-            if( $usuarioAutenticado['status'] === false ) return json_encode(array('status' => false, 'msg' => 'Acesso negado. Por favor, verifique o email / senha.'), JSON_UNESCAPED_UNICODE );
+            if( $usuarioAutenticado['status'] === false ) print_r( json_encode(array('status' => false, 'msg' => 'Acesso negado. Por favor, verifique o email / senha.'), JSON_UNESCAPED_UNICODE ));
 
             SessaoHelpers::criarSessao($usuarioAutenticado['dadosFuncionario']);
-            return json_encode(array('status' => true, 'msg' => 'Acesso permitido. Você será redirecionado em breve.'), JSON_UNESCAPED_UNICODE );
+            print_r( json_encode(array('status' => true, 'msg' => 'Acesso permitido. Você será redirecionado em breve.'), JSON_UNESCAPED_UNICODE ));
             
         } catch (InvalidArgumentException $e) {
             echo 'Erro: ' . $e->getMessage();
