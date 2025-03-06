@@ -8,6 +8,7 @@ $funcionariosController = new FuncionariosController();
 header('Content-Type: application/json; charset=utf-8');
 
 if( $dados['acaoAjax'] === "acessarSistema" ) return $funcionariosController->acessarSistema($dados['email'], $dados['senha']);
+if( $dados['acaoAjax'] === "sairSistema" ) return $funcionariosController->sairSistema();
 
 function recuperDadosRequest() {
 

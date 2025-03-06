@@ -11,6 +11,13 @@ final class SessaoHelpers {
             $_SESSION[$chaveSessao] = $valorSessao;    
 
         }
-    }    
+    }
+
+    public static function destruirSessao()
+    {
+        session_start();
+        $_SESSION = array();
+        session_destroy();
+    }
 
 }

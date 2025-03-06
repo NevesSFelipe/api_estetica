@@ -40,5 +40,11 @@ class FuncionariosController {
         }
 
     }
+
+    public function sairSistema()
+    {
+        SessaoHelpers::destruirSessao();
+        print_r( json_encode(array('status' => true, 'msg' =>  'Usuário deslogado com sucesso.'), JSON_UNESCAPED_UNICODE ));
+    }
     
 }
