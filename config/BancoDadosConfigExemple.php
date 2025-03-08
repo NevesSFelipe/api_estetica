@@ -6,4 +6,3 @@
 define("SERVIDOR", "NOME_DO_SEU_SERVIDOR");
 define("USUARIO", "USUARIO_DO_BANCO");
 define("SENHA", "SENHA_DO_BANCO");
-define("NOMEBANCO", "NOME_DB_CRIADO");

@@ -6,12 +6,12 @@ final class ConexaoMySQL {
 
     public PDO $pdoMySQL;
 
-    public function __construct()
+    public function __construct($sistema)
     {
         
         try {
 
-            $this->pdoMySQL = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . NOMEBANCO, USUARIO, SENHA);
+            $this->pdoMySQL = new PDO("mysql:host=" . SERVIDOR . ";dbname=" . $sistema, USUARIO, SENHA);
 
         } catch (PDOException $e) {
 

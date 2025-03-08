@@ -14,9 +14,9 @@ class FuncionariosModel {
 
     private string $tabelaFuncionarios = "funcionarios";
 
-    public function __construct()
+    public function __construct($sistema)
     {
-        $this->conexaoMySQL = new ConexaoMySQL;
+        $this->conexaoMySQL = new ConexaoMySQL($sistema);
     }
 
     public function autenticarFuncionario($email, $senha)

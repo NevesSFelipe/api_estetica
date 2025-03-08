@@ -15,9 +15,9 @@ class FuncionariosController {
 
     private FuncionariosModel $funcionariosModel;
 
-    public function __construct()
+    public function __construct($sistema)
     {
-        $this->funcionariosModel = new FuncionariosModel;
+        $this->funcionariosModel = new FuncionariosModel($sistema);
     }
 
     public function acessarSistema($email, $senha)
