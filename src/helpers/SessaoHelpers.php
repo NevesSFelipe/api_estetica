@@ -8,7 +8,9 @@ final class SessaoHelpers {
         
         foreach( $arrayDadosParaSessao as $chaveSessao => $valorSessao ) {
 
-            $_SESSION[$chaveSessao] = $valorSessao;    
+            if( $chaveSessao != "senha" ) {
+                $_SESSION[$chaveSessao] = $valorSessao;
+            }
 
         }
     }
