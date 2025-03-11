@@ -5,6 +5,8 @@ require_once 'src/helpers/SessaoHelpers.php';
 
 require_once 'src/model/FuncionariosModel.php';
 
+require_once 'src/controller/ParametrosHorariosController.php';
+
 class FuncionariosController {
 
     private string $nome;
@@ -13,11 +15,16 @@ class FuncionariosController {
     private string $cargo;
     private string $permissoes;
 
-    private FuncionariosModel $funcionariosModel;
+    // Controller
+    private ParametrosHorariosController $parametrosHorariosController;
 
+    // Model
+    private FuncionariosModel $funcionariosModel;
+    
     public function __construct($sistema)
     {
         $this->funcionariosModel = new FuncionariosModel($sistema);
+        $this->parametrosHorariosController = new ParametrosHorariosController($sistema);
     }
 
     public function acessarSistema($email, $senha)
@@ -46,5 +53,17 @@ class FuncionariosController {
         SessaoHelpers::destruirSessao();
         print_r( json_encode(array('status' => true, 'msg' =>  'Usuário deslogado com sucesso.'), JSON_UNESCAPED_UNICODE ));
     }
+
+    public function carregarHorariosParametrizados()
+    {
+        
+        try {
+            return $this->parametrosHorariosController->carregarHorariosParametrizados();
+        } catch (InvalidArgumentException $e) {
+            echo 'Erro: ' . $e->getMessage();
+        }
+
+    }
+
     
 }

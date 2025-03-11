@@ -20,6 +20,10 @@ switch( $dados['acaoAjax'] ) {
         return $funcionariosController->sairSistema();
     break;
 
+    case 'carregarHorariosParametrizados':
+        return $funcionariosController->carregarHorariosParametrizados();
+    break;
+
     default:
         
         print_r(json_encode(array('status' => false, 'msg' => 'Por favor, informe uma ação válida para executar na API.'), JSON_UNESCAPED_UNICODE ));
